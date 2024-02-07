@@ -1,0 +1,22 @@
+def find_prime_numbers(n):
+    if n < 2:
+        return []
+
+    is_prime = [True] * (n + 1)
+    is_prime[0] = is_prime[1] = False  
+
+    for p in range(2, int(n**0.5) + 1):
+        if is_prime[p]:
+            for i in range(p * p, n + 1, p):
+                is_prime[i] = False
+
+    primes = [p for p in range(2, n + 1) if is_prime[p]]
+    return primes
+
+n = int(input("Enter an integer between 1 and 99: "))
+if 1 <= n <= 99:
+    prime_list = find_prime_numbers(n)
+    print(f"Prime numbers between 2 and {n}: {prime_list}")
+else:
+    print("Incorrect input. Please enter an integer between 1 and 99.")
+
