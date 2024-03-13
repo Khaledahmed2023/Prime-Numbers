@@ -1,2 +1,1 @@
-# inlam
-Khaled Ahmed
+Task for school.
